@@ -37,9 +37,9 @@ class ACM1602NI:
             self.writeReg(_data, dt)
 
     def localte(self, x, y):
-        if x > LINE_CHARA_MAX:
+        if x >= LINE_CHARA_MAX:
             x = LINE_CHARA_MAX - 1
-        if y > LINE_MAX:
+        if y >= LINE_MAX:
             y = LINE_MAX - 1
         lineaddr = 0x80 + LINE_HEAD_ADDR_TBL[y] + x
         self.command(lineaddr)
